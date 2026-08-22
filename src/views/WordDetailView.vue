@@ -10,6 +10,15 @@
       <div class="animate-spin rounded-full h-12 w-12 border-4 border-emerald-200 border-t-emerald-600 mx-auto"></div>
     </div>
 
+    <!-- 加载失败 -->
+    <div v-else-if="store.state.error" class="text-center py-20">
+      <p class="text-5xl mb-4">⚠️</p>
+      <p class="text-gray-600 mb-2">{{ store.state.error }}</p>
+      <button @click="store.loadDictionary()" class="mt-4 px-6 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors cursor-pointer">
+        点击重试
+      </button>
+    </div>
+
     <!-- 未找到 -->
     <div v-else-if="!wordData" class="text-center py-20">
       <p class="text-6xl mb-4">😕</p>
@@ -23,7 +32,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import store from '../store/dictionary.js'
 import WordCard from '../components/WordCard.vue'
 
@@ -32,4 +41,11 @@ const props = defineProps({
 })
 
 const wordData = computed(() => store.getWordByName(props.word))
+
+// 动态设置页面标题
+watch(wordData, (data) => {
+  if (data) {
+    document.title = `${data.word} - 意大利语 CEFR 词典`
+  }
+}, { immediate: true })
 </script>

@@ -1,10 +1,11 @@
-import { reactive, ref } from 'vue'
+import { reactive, markRaw } from 'vue'
 import Fuse from 'fuse.js'
 
 const state = reactive({
   allWords: [],
   filteredWords: [],
   loading: true,
+  error: null,
   searchQuery: '',
   selectedLevels: ['A1', 'A2', 'B1', 'B2'],
   selectedPos: 'all', // 'all' | 'v' | 's' | 'agg' | 'avv' | 'other'
@@ -26,11 +27,19 @@ function getPosCategory(pos) {
 
 async function loadDictionary() {
   state.loading = true
+  state.error = null
   try {
-    const res = await fetch('./data/all_words.json')
-    allWordsRaw = await res.json()
+    const baseUrl = import.meta.env.BASE_URL || '/'
+    const res = await fetch(`${baseUrl}data/all_words.json`)
+    if (!res.ok) {
+      throw new Error(`无法获取词典数据 (HTTP ${res.status})`)
+    }
+    const data = await res.json()
+    // 使用 markRaw 避免 Vue 对 5.7MB 数据做深度响应式代理
+    allWordsRaw = markRaw(data)
 
-    // 统计各级别词数
+    // 重置并统计各级别词数
+    state.totalByLevel = { A1: 0, A2: 0, B1: 0, B2: 0 }
     allWordsRaw.forEach(w => {
       if (state.totalByLevel[w.level] !== undefined) {
         state.totalByLevel[w.level]++
@@ -53,6 +62,7 @@ async function loadDictionary() {
     applyFilters()
   } catch (err) {
     console.error('Failed to load dictionary data:', err)
+    state.error = err.message || '词典加载失败，请检查网络连接'
   } finally {
     state.loading = false
   }
@@ -61,8 +71,8 @@ async function loadDictionary() {
 function applyFilters() {
   let results = allWordsRaw
 
-  // 搜索过滤
-  if (state.searchQuery.trim()) {
+  // 搜索过滤（加空指针防护）
+  if (state.searchQuery.trim() && fuse) {
     const fuseResults = fuse.search(state.searchQuery.trim())
     results = fuseResults.map(r => r.item)
   }
@@ -77,7 +87,7 @@ function applyFilters() {
     results = results.filter(w => getPosCategory(w.pos) === state.selectedPos)
   }
 
-  state.filteredWords = results
+  state.filteredWords = markRaw(results)
 }
 
 function setSearch(query) {
@@ -103,7 +113,9 @@ function setPos(pos) {
 }
 
 function getWordByName(wordName) {
-  return allWordsRaw.find(w => w.word === decodeURIComponent(wordName))
+  if (!wordName || !allWordsRaw.length) return null
+  const target = wordName.trim().toLowerCase()
+  return allWordsRaw.find(w => w.word.toLowerCase() === target)
 }
 
 function getRandomWord() {

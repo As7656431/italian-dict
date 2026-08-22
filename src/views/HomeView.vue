@@ -8,6 +8,17 @@
       </div>
     </div>
 
+    <!-- 错误状态 -->
+    <div v-else-if="store.state.error" class="flex items-center justify-center py-20">
+      <div class="text-center">
+        <p class="text-5xl mb-4">⚠️</p>
+        <p class="text-gray-600 mb-2">{{ store.state.error }}</p>
+        <button @click="store.loadDictionary()" class="mt-4 px-6 py-2 bg-emerald-600 text-white rounded-full hover:bg-emerald-700 transition-colors cursor-pointer">
+          点击重试
+        </button>
+      </div>
+    </div>
+
     <template v-else>
       <!-- 搜索 + 筛选区 -->
       <div class="sticky top-[60px] z-40 bg-[#f8faf9] pb-4 pt-2 space-y-3">
@@ -57,14 +68,15 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onBeforeUnmount } from 'vue'
 import store from '../store/dictionary.js'
 import SearchBar from '../components/SearchBar.vue'
 import LevelFilter from '../components/LevelFilter.vue'
 import PosFilter from '../components/PosFilter.vue'
 import WordCard from '../components/WordCard.vue'
 
-const searchText = ref('')
+// 从 store 恢复搜索状态（修复返回时搜索丢失的问题）
+const searchText = ref(store.state.searchQuery)
 const pageSize = 20
 const currentPage = ref(1)
 
@@ -77,8 +89,13 @@ watch(searchText, (val) => {
   }, 200)
 })
 
-// Watch for filter changes to reset pagination
-watch(() => [store.state.selectedLevels.length, store.state.selectedPos], () => {
+// 组件卸载时清理计时器
+onBeforeUnmount(() => {
+  clearTimeout(debounceTimer)
+})
+
+// 监听筛选变化重置分页（修复：展开数组内容而非仅监听 length）
+watch(() => [...store.state.selectedLevels, store.state.selectedPos], () => {
   currentPage.value = 1
 })
 
