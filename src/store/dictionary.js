@@ -1,6 +1,8 @@
 import { reactive, markRaw } from 'vue'
 import Fuse from 'fuse.js'
 
+const FAVORITES_KEY = 'italian-dict-favorites'
+
 const state = reactive({
   allWords: [],
   filteredWords: [],
@@ -8,13 +10,70 @@ const state = reactive({
   error: null,
   searchQuery: '',
   selectedLevels: ['A1', 'A2', 'B1', 'B2'],
-  selectedPos: 'all', // 'all' | 'v' | 's' | 'agg' | 'avv' | 'other'
+  selectedPos: 'all',
+  showFavoritesOnly: false,
   totalByLevel: { A1: 0, A2: 0, B1: 0, B2: 0 },
+  favorites: new Set(),
+  wordOfTheDay: null,
 })
 
 let fuse = null
 let allWordsRaw = []
 
+// ========== 收藏功能 ==========
+function loadFavorites() {
+  try {
+    const saved = localStorage.getItem(FAVORITES_KEY)
+    if (saved) {
+      state.favorites = new Set(JSON.parse(saved))
+    }
+  } catch (e) {
+    console.warn('Failed to load favorites:', e)
+  }
+}
+
+function saveFavorites() {
+  try {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify([...state.favorites]))
+  } catch (e) {
+    console.warn('Failed to save favorites:', e)
+  }
+}
+
+function toggleFavorite(word) {
+  if (state.favorites.has(word)) {
+    state.favorites.delete(word)
+  } else {
+    state.favorites.add(word)
+  }
+  // 触发响应式更新
+  state.favorites = new Set(state.favorites)
+  saveFavorites()
+  if (state.showFavoritesOnly) {
+    applyFilters()
+  }
+}
+
+function isFavorite(word) {
+  return state.favorites.has(word)
+}
+
+function toggleShowFavorites() {
+  state.showFavoritesOnly = !state.showFavoritesOnly
+  applyFilters()
+}
+
+// ========== 今日一词 ==========
+function pickWordOfTheDay() {
+  if (allWordsRaw.length === 0) return
+  // 基于日期的稳定随机（同一天返回同一个词）
+  const today = new Date()
+  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate()
+  const index = seed % allWordsRaw.length
+  state.wordOfTheDay = allWordsRaw[index]
+}
+
+// ========== 词性分类 ==========
 function getPosCategory(pos) {
   if (!pos) return 'other'
   const p = pos.toLowerCase()
@@ -25,9 +84,11 @@ function getPosCategory(pos) {
   return 'other'
 }
 
+// ========== 数据加载 ==========
 async function loadDictionary() {
   state.loading = true
   state.error = null
+  loadFavorites()
   try {
     const baseUrl = import.meta.env.BASE_URL || '/'
     const res = await fetch(`${baseUrl}data/all_words.json`)
@@ -35,10 +96,8 @@ async function loadDictionary() {
       throw new Error(`无法获取词典数据 (HTTP ${res.status})`)
     }
     const data = await res.json()
-    // 使用 markRaw 避免 Vue 对 5.7MB 数据做深度响应式代理
     allWordsRaw = markRaw(data)
 
-    // 重置并统计各级别词数
     state.totalByLevel = { A1: 0, A2: 0, B1: 0, B2: 0 }
     allWordsRaw.forEach(w => {
       if (state.totalByLevel[w.level] !== undefined) {
@@ -46,7 +105,6 @@ async function loadDictionary() {
       }
     })
 
-    // 初始化 Fuse 模糊搜索
     fuse = new Fuse(allWordsRaw, {
       keys: [
         { name: 'word', weight: 3 },
@@ -59,6 +117,7 @@ async function loadDictionary() {
     })
 
     state.allWords = allWordsRaw
+    pickWordOfTheDay()
     applyFilters()
   } catch (err) {
     console.error('Failed to load dictionary data:', err)
@@ -68,23 +127,25 @@ async function loadDictionary() {
   }
 }
 
+// ========== 筛选 ==========
 function applyFilters() {
   let results = allWordsRaw
 
-  // 搜索过滤（加空指针防护）
   if (state.searchQuery.trim() && fuse) {
     const fuseResults = fuse.search(state.searchQuery.trim())
     results = fuseResults.map(r => r.item)
   }
 
-  // 级别过滤
   if (state.selectedLevels.length < 4) {
     results = results.filter(w => state.selectedLevels.includes(w.level))
   }
 
-  // 词性过滤
   if (state.selectedPos !== 'all') {
     results = results.filter(w => getPosCategory(w.pos) === state.selectedPos)
+  }
+
+  if (state.showFavoritesOnly) {
+    results = results.filter(w => state.favorites.has(w.word))
   }
 
   state.filteredWords = markRaw(results)
@@ -133,4 +194,7 @@ export default {
   getRandomWord,
   getPosCategory,
   applyFilters,
+  toggleFavorite,
+  isFavorite,
+  toggleShowFavorites,
 }

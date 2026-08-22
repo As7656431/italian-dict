@@ -20,10 +20,29 @@
     </div>
 
     <template v-else>
+      <!-- 今日一词 -->
+      <div v-if="store.state.wordOfTheDay && !store.state.searchQuery" class="mb-6 bg-gradient-to-r from-[#2d6a4f] to-[#40916c] rounded-2xl p-5 text-white shadow-lg">
+        <div class="flex items-center justify-between mb-3">
+          <span class="text-xs font-semibold uppercase tracking-widest opacity-80">📖 今日一词</span>
+          <span class="text-xs opacity-60">{{ todayDate }}</span>
+        </div>
+        <div class="flex items-baseline gap-3 mb-2">
+          <router-link :to="`/word/${encodeURIComponent(store.state.wordOfTheDay.word)}`" class="text-3xl font-bold text-white no-underline hover:underline" lang="it">
+            {{ store.state.wordOfTheDay.word }}
+          </router-link>
+          <span class="text-white/60 text-sm" lang="it">{{ store.state.wordOfTheDay.ipa }}</span>
+          <span class="text-xs bg-white/20 px-2 py-0.5 rounded-full">{{ store.state.wordOfTheDay.level }}</span>
+        </div>
+        <p class="text-white/90 text-sm leading-relaxed">{{ store.state.wordOfTheDay.translation }}</p>
+        <div v-if="store.state.wordOfTheDay.mnemonic" class="mt-3 text-xs text-white/70 leading-relaxed bg-white/10 rounded-lg p-3">
+          💡 {{ store.state.wordOfTheDay.mnemonic.split('\n')[0] }}
+        </div>
+      </div>
+
       <!-- 搜索 + 筛选区 -->
       <div class="sticky top-[60px] z-40 bg-[#f8faf9] pb-4 pt-2 space-y-3">
         <SearchBar v-model="searchText" />
-        <div class="flex flex-wrap items-center gap-4">
+        <div class="flex flex-wrap items-center gap-3">
           <LevelFilter
             :selected="store.state.selectedLevels"
             :counts="store.state.totalByLevel"
@@ -34,16 +53,30 @@
             :selected="store.state.selectedPos"
             @select="store.setPos"
           />
+          <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
+          <!-- 收藏筛选按钮 -->
+          <button
+            @click="store.toggleShowFavorites()"
+            :class="[
+              'px-3 py-1 rounded-full text-xs font-medium transition-all cursor-pointer border',
+              store.state.showFavoritesOnly
+                ? 'bg-yellow-100 text-yellow-800 border-yellow-300'
+                : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'
+            ]"
+          >
+            ⭐ 收藏 <span class="opacity-70">{{ store.state.favorites.size }}</span>
+          </button>
         </div>
         <div class="text-xs text-gray-400">
           共 {{ store.state.filteredWords.length }} 个词条
+          <span v-if="store.state.showFavoritesOnly" class="text-yellow-600">（仅显示收藏）</span>
         </div>
       </div>
 
       <!-- 词条列表 -->
       <div v-if="store.state.filteredWords.length === 0" class="text-center py-16">
-        <p class="text-6xl mb-4">🔍</p>
-        <p class="text-gray-400">没有找到匹配的词条</p>
+        <p class="text-6xl mb-4">{{ store.state.showFavoritesOnly ? '⭐' : '🔍' }}</p>
+        <p class="text-gray-400">{{ store.state.showFavoritesOnly ? '还没有收藏的词条，点击词条右上角 ☆ 收藏' : '没有找到匹配的词条' }}</p>
       </div>
 
       <div v-else class="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -75,10 +108,14 @@ import LevelFilter from '../components/LevelFilter.vue'
 import PosFilter from '../components/PosFilter.vue'
 import WordCard from '../components/WordCard.vue'
 
-// 从 store 恢复搜索状态（修复返回时搜索丢失的问题）
 const searchText = ref(store.state.searchQuery)
 const pageSize = 20
 const currentPage = ref(1)
+
+const todayDate = computed(() => {
+  const d = new Date()
+  return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`
+})
 
 let debounceTimer = null
 watch(searchText, (val) => {
@@ -89,13 +126,11 @@ watch(searchText, (val) => {
   }, 200)
 })
 
-// 组件卸载时清理计时器
 onBeforeUnmount(() => {
   clearTimeout(debounceTimer)
 })
 
-// 监听筛选变化重置分页（修复：展开数组内容而非仅监听 length）
-watch(() => [...store.state.selectedLevels, store.state.selectedPos], () => {
+watch(() => [...store.state.selectedLevels, store.state.selectedPos, store.state.showFavoritesOnly], () => {
   currentPage.value = 1
 })
 
