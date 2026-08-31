@@ -27,16 +27,16 @@
       </div>
     </div>
 
-    <!-- 拉丁语折叠 -->
+    <!-- 构词说明折叠 -->
     <button
       v-if="roots.explanation"
-      @click="showLatin = !showLatin"
-      :aria-expanded="showLatin"
+      @click="showExplanation = !showExplanation"
+      :aria-expanded="showExplanation"
       class="mt-2 text-xs text-gray-400 hover:text-gray-500 cursor-pointer bg-transparent border-none p-0"
     >
-      📜 {{ showLatin ? '收起' : '查看' }}拉丁语词源 {{ showLatin ? '▾' : '▸' }}
+      📜 {{ showExplanation ? '收起' : '查看' }}构词说明 {{ showExplanation ? '▾' : '▸' }}
     </button>
-    <div v-if="showLatin && roots.explanation" class="mt-2 text-xs text-gray-400 leading-relaxed bg-gray-50 rounded-lg p-3 border border-dashed border-gray-200">
+    <div v-if="showExplanation && roots.explanation" class="mt-2 text-xs text-gray-500 leading-relaxed bg-gray-50 rounded-lg p-3 border border-dashed border-gray-200">
       {{ roots.explanation }}
     </div>
   </div>
@@ -49,20 +49,14 @@ const props = defineProps({
   roots: { type: Object, required: true },
 })
 
-const showLatin = ref(false)
+const showExplanation = ref(false)
 
 const partColors = ['text-emerald-700', 'text-sky-700', 'text-purple-700', 'text-amber-700']
 const partBgColors = ['bg-emerald-100 text-emerald-700', 'bg-sky-100 text-sky-700', 'bg-purple-100 text-purple-700', 'bg-amber-100 text-amber-700']
 
-// 安全提取英语同源词（纯文本，不用 v-html）
+// 英语同源词直接取 v2 数据字段（纯文本渲染，不用 v-html）
 const cognateWords = computed(() => {
-  if (!props.roots.explanation) return []
-  const exp = props.roots.explanation
-  // 匹配常见英语词（3个字母以上的拉丁字母词）
-  const matches = exp.match(/\b[a-zA-Z]{3,}\b/g)
-  if (!matches) return []
-  // 过滤掉常见非英语词和拉丁语标记词
-  const exclude = new Set(['the', 'and', 'from', 'via', 'etc', 'con', 'per', 'che', 'del', 'non', 'una', 'sono', 'lat', 'hab', 'tion', 'ment'])
-  return [...new Set(matches.filter(w => !exclude.has(w.toLowerCase()) && w.length >= 4))].slice(0, 6)
+  const list = props.roots.cognates
+  return Array.isArray(list) ? list.filter(w => typeof w === 'string' && w.trim()) : []
 })
 </script>
