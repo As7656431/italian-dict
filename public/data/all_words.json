@@ -9700,7 +9700,7 @@
       }
     ],
     "roots": {
-      "breakdown": "quo-modo → come",
+      "breakdown": "come",
       "parts": [
         {
           "part": "quo",
@@ -10773,7 +10773,7 @@
       }
     ],
     "roots": {
-      "breakdown": "con-st-are → costare",
+      "breakdown": "costare",
       "parts": [
         {
           "part": "con-/com-",
@@ -21755,8 +21755,8 @@
           "meaning": "七月名称相关词根"
         },
         {
-          "part": "-us",
-          "meaning": "阳性名词旧词尾"
+          "part": "-o",
+          "meaning": "阳性单数词尾"
         },
         {
           "part": "luglio",
@@ -24079,7 +24079,7 @@
       }
     ],
     "roots": {
-      "breakdown": "Mercuri-i dies → mercoledì",
+      "breakdown": "mercoledì",
       "parts": [
         {
           "part": "Mercuri(i)",
@@ -24159,7 +24159,7 @@
       }
     ],
     "roots": {
-      "breakdown": "mens-is → mese",
+      "breakdown": "mese",
       "parts": [
         {
           "part": "mens-",
@@ -24246,7 +24246,7 @@
       }
     ],
     "roots": {
-      "breakdown": "medi-et-as → metà",
+      "breakdown": "metà",
       "parts": [
         {
           "part": "medi-",
@@ -24335,7 +24335,7 @@
       }
     ],
     "roots": {
-      "breakdown": "mitt-ere → mettere",
+      "breakdown": "mettere",
       "parts": [
         {
           "part": "mitt-/mett-",
@@ -24443,7 +24443,7 @@
       }
     ],
     "roots": {
-      "breakdown": "mezza + notte → mezzanotte",
+      "breakdown": "mezzanotte",
       "parts": [
         {
           "part": "mezza",
@@ -32882,7 +32882,7 @@
       }
     ],
     "roots": {
-      "breakdown": "eccu(m) + illum > quello",
+      "breakdown": "eccu",
       "parts": [
         {
           "part": "eccu(m)",
@@ -32971,7 +32971,7 @@
       }
     ],
     "roots": {
-      "breakdown": "eccu(m) + istum > questo",
+      "breakdown": "eccu",
       "parts": [
         {
           "part": "eccu(m)",
@@ -33059,7 +33059,7 @@
       }
     ],
     "roots": {
-      "breakdown": "eccu(m) + hic > qui",
+      "breakdown": "eccu",
       "parts": [
         {
           "part": "eccu(m)",
@@ -51270,8 +51270,8 @@
           "meaning": "马相关词根"
         },
         {
-          "part": "-us",
-          "meaning": "历史遗留阳性词尾"
+          "part": "-o",
+          "meaning": "阳性单数词尾"
         },
         {
           "part": "-o",
@@ -57356,7 +57356,7 @@
       }
     ],
     "roots": {
-      "breakdown": "di(s)-vort/vert-ium → divorzi-are",
+      "breakdown": "di",
       "parts": [
         {
           "part": "di-/dis-",
@@ -60934,7 +60934,7 @@
       }
     ],
     "roots": {
-      "breakdown": "fors-it → forse",
+      "breakdown": "forse",
       "parts": [
         {
           "part": "fors",
@@ -65188,7 +65188,7 @@
       }
     ],
     "roots": {
-      "breakdown": "in-iz-io（< lat. in-it-ium）",
+      "breakdown": "in-iz-io",
       "parts": [
         {
           "part": "in-",
@@ -65199,8 +65199,8 @@
           "meaning": "表示开始的核心成分"
         },
         {
-          "part": "-ium > -io",
-          "meaning": "形成 -io 名词的后缀"
+          "part": "-io",
+          "meaning": "阳性名词词尾"
         }
       ],
       "explanation": "这是“开始、开端”的名词形式，核心就是“进入起点”的意思。它和 iniziare、iniziale、iniziativa 属于同一词族，记忆时把“起头”这一组一起背最方便。",
@@ -66134,7 +66134,7 @@
       }
     ],
     "roots": {
-      "breakdown": "Lavagna → lavagn-a",
+      "breakdown": "lavagn-a",
       "parts": [
         {
           "part": "Lavagna",
@@ -72757,19 +72757,15 @@
       }
     ],
     "roots": {
-      "breakdown": "omnis → omni → ogni",
+      "breakdown": "ogn-i",
       "parts": [
         {
-          "part": "omn-",
-          "meaning": "表示全部、每一的词根"
-        },
-        {
-          "part": "-is",
-          "meaning": "非现代意语词尾"
+          "part": "ogn-",
+          "meaning": "表示“每一个、全部”的词根"
         },
         {
           "part": "-i",
-          "meaning": "固定词尾，不表复数"
+          "meaning": "形容词固定词尾"
         }
       ],
       "explanation": "ogni 是不定形容词，表示“每一个、每”，形式不随名词性数变化，如 ogni giorno、ogni persona。相关构词和表达有 ognuno“每个人”、ogniqualvolta“每当”，以及形式相关的 onni- 系列如 onnivoro“杂食的”、onnipresente“无处不在的”。",
@@ -72852,7 +72848,7 @@
       }
     ],
     "roots": {
-      "breakdown": "O.K. → okay → ok",
+      "breakdown": "ok",
       "parts": [
         {
           "part": "O.",
@@ -74586,7 +74582,7 @@
       }
     ],
     "roots": {
-      "breakdown": "pariet-e → parete",
+      "breakdown": "parete",
       "parts": [
         {
           "part": "pariet-",
@@ -80212,7 +80208,7 @@
       }
     ],
     "roots": {
-      "breakdown": "qualche + cosa → qualcosa",
+      "breakdown": "qualcosa",
       "parts": [
         {
           "part": "qualche",
@@ -80303,7 +80299,7 @@
       }
     ],
     "roots": {
-      "breakdown": "qualche + uno → qualcuno",
+      "breakdown": "qualcuno",
       "parts": [
         {
           "part": "qualche",
@@ -85571,7 +85567,7 @@
       }
     ],
     "roots": {
-      "breakdown": "sen-ior-em → signor-e / signor-a",
+      "breakdown": "signor-e / signor-a",
       "parts": [
         {
           "part": "sen-/seni-",
@@ -85659,7 +85655,7 @@
       }
     ],
     "roots": {
-      "breakdown": "sil-ent-ium → silenzi-o",
+      "breakdown": "silenzi-o",
       "parts": [
         {
           "part": "sil-/sile-",
@@ -88462,7 +88458,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ist(e) + ips(e) → stesso",
+      "breakdown": "ist",
       "parts": [
         {
           "part": "iste",
@@ -98840,7 +98836,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ad-verbi-um → avverbio",
+      "breakdown": "avverbio",
       "parts": [
         {
           "part": "ad-",
@@ -99292,7 +99288,7 @@
       }
     ],
     "roots": {
-      "breakdown": "be(ne) → be' / beh",
+      "breakdown": "be",
       "parts": [
         {
           "part": "be-",
@@ -108803,7 +108799,7 @@
       }
     ],
     "roots": {
-      "breakdown": "dis-/di- + regere → dirigere → directio(n-) → direzione",
+      "breakdown": "directio",
       "parts": [
         {
           "part": "dis-/di-",
@@ -108898,7 +108894,7 @@
       }
     ],
     "roots": {
-      "breakdown": "de-/di- + scandere → descendere/discendere → disces-a",
+      "breakdown": "disces-a",
       "parts": [
         {
           "part": "de-/di-",
@@ -127797,7 +127793,7 @@
       }
     ],
     "roots": {
-      "breakdown": "pop < pop(ular)",
+      "breakdown": "pop < pop",
       "parts": [
         {
           "part": "pop",
@@ -129354,7 +129350,7 @@
       }
     ],
     "roots": {
-      "breakdown": "petro-selin-um > prezzemolo",
+      "breakdown": "prezzemol-o",
       "parts": [
         {
           "part": "petro-",
@@ -129365,8 +129361,8 @@
           "meaning": "植物名词中段"
         },
         {
-          "part": "-um > -o",
-          "meaning": "词尾演变为-o"
+          "part": "-o",
+          "meaning": "阳性单数名词词尾"
         }
       ],
       "explanation": "prezzemolo 在现代意大利语中主要作为一个整体植物名来记，结尾 -o 是常见阳性名词词尾。它的内部成分在现代语里不太能自由构词，常见派生和联想有 prezzemolata，以及表达 essere come il prezzemolo（到处都在、哪里都有）。",
@@ -131450,7 +131446,7 @@
       }
     ],
     "roots": {
-      "breakdown": "re-col-lig-ere → raccogliere",
+      "breakdown": "raccogliere",
       "parts": [
         {
           "part": "re-",
@@ -136676,7 +136672,7 @@
       }
     ],
     "roots": {
-      "breakdown": "se + no → sennò",
+      "breakdown": "sennò",
       "parts": [
         {
           "part": "se",
@@ -151573,7 +151569,7 @@
       }
     ],
     "roots": {
-      "breakdown": "a-tom-o → attimo",
+      "breakdown": "attimo",
       "parts": [
         {
           "part": "a-",
@@ -155613,7 +155609,7 @@
       }
     ],
     "roots": {
-      "breakdown": "quisque + unus → ciascuno",
+      "breakdown": "ciascuno",
       "parts": [
         {
           "part": "quisque",
@@ -157058,7 +157054,7 @@
       }
     ],
     "roots": {
-      "breakdown": "com-plex-us → compless-o",
+      "breakdown": "compless-o",
       "parts": [
         {
           "part": "com-",
@@ -157069,7 +157065,7 @@
           "meaning": "表示交织、缠绕的词根"
         },
         {
-          "part": "-us / -o",
+          "part": "-o",
           "meaning": "阳性单数词尾"
         }
       ],
@@ -159078,7 +159074,7 @@
       }
     ],
     "roots": {
-      "breakdown": "com-put-are → cont-are",
+      "breakdown": "cont-are",
       "parts": [
         {
           "part": "com- / con-",
@@ -165187,7 +165183,7 @@
       }
     ],
     "roots": {
-      "breakdown": "et cetera → eccetera",
+      "breakdown": "eccetera",
       "parts": [
         {
           "part": "et",
@@ -165274,7 +165270,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ex-cap-tus → exceptus → eccetto",
+      "breakdown": "eccetto",
       "parts": [
         {
           "part": "ex-",
@@ -166138,7 +166134,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ex-sist-ere → esistere",
+      "breakdown": "esistere",
       "parts": [
         {
           "part": "ex-",
@@ -166241,7 +166237,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ex-press-ion-e → espressione",
+      "breakdown": "espressione",
       "parts": [
         {
           "part": "ex-",
@@ -172337,7 +172333,7 @@
       }
     ],
     "roots": {
-      "breakdown": "inter-esse → interess-e",
+      "breakdown": "interess-e",
       "parts": [
         {
           "part": "inter-",
@@ -182696,7 +182692,7 @@
       }
     ],
     "roots": {
-      "breakdown": "presbýteros → presbyter → prete",
+      "breakdown": "prete",
       "parts": [
         {
           "part": "presbýteros",
@@ -188745,15 +188741,15 @@
       }
     ],
     "roots": {
-      "breakdown": "sanct-us > sant-o",
+      "breakdown": "sant-o",
       "parts": [
         {
-          "part": "sanct-/sant-",
-          "meaning": "表神圣圣人的词根"
+          "part": "sant-",
+          "meaning": "与神圣、圣人相关的词根"
         },
         {
-          "part": "-us",
-          "meaning": "非现代意语词尾"
+          "part": "-o",
+          "meaning": "阳性单数词尾"
         },
         {
           "part": "-o/-a/-i/-e",
@@ -197537,7 +197533,7 @@
       }
     ],
     "roots": {
-      "breakdown": "viol-ent-ia → viol-enza",
+      "breakdown": "viol-enza",
       "parts": [
         {
           "part": "viol-/vi-",
