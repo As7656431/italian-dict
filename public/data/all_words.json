@@ -11590,7 +11590,7 @@
       }
     ],
     "roots": {
-      "breakdown": "di < de",
+      "breakdown": "di-de",
       "parts": [
         {
           "part": "di",
@@ -11748,7 +11748,7 @@
       }
     ],
     "roots": {
-      "breakdown": "di-etro < de retro",
+      "breakdown": "de-retro",
       "parts": [
         {
           "part": "de",
@@ -11927,7 +11927,7 @@
       }
     ],
     "roots": {
-      "breakdown": "dic-ere > dire",
+      "breakdown": "dic-ere",
       "parts": [
         {
           "part": "dic-",
@@ -12661,7 +12661,7 @@
       }
     ],
     "roots": {
-      "breakdown": "de-post > dopo",
+      "breakdown": "de-post",
       "parts": [
         {
           "part": "de",
@@ -12749,7 +12749,7 @@
       }
     ],
     "roots": {
-      "breakdown": "dupl-us > dopp-io",
+      "breakdown": "du-/duo-plus-io",
       "parts": [
         {
           "part": "du-/duo",
@@ -13232,7 +13232,7 @@
       }
     ],
     "roots": {
-      "breakdown": "e < et",
+      "breakdown": "e-et",
       "parts": [
         {
           "part": "e",
@@ -17444,7 +17444,7 @@
       }
     ],
     "roots": {
-      "breakdown": "giù < deorsum",
+      "breakdown": "de-orsum / versum",
       "parts": [
         {
           "part": "de-",
@@ -17524,7 +17524,7 @@
       }
     ],
     "roots": {
-      "breakdown": "giugn-o < Iunius",
+      "breakdown": "Iunius-o",
       "parts": [
         {
           "part": "Iunius",
@@ -17600,7 +17600,7 @@
       }
     ],
     "roots": {
-      "breakdown": "gli < illi",
+      "breakdown": "ill-i",
       "parts": [
         {
           "part": "ill-",
@@ -21212,7 +21212,7 @@
       }
     ],
     "roots": {
-      "breakdown": "lì < illic",
+      "breakdown": "illic-il-ce/-c",
       "parts": [
         {
           "part": "illic",
@@ -21485,7 +21485,7 @@
       }
     ],
     "roots": {
-      "breakdown": "illum > lo",
+      "breakdown": "ill-um-lo",
       "parts": [
         {
           "part": "ill-",
@@ -21568,7 +21568,7 @@
       }
     ],
     "roots": {
-      "breakdown": "long-it-anus > lontano",
+      "breakdown": "long-it-anus",
       "parts": [
         {
           "part": "long-",
@@ -21657,7 +21657,7 @@
       }
     ],
     "roots": {
-      "breakdown": "illorum > loro",
+      "breakdown": "ill-orum-loro",
       "parts": [
         {
           "part": "ill-",
@@ -21748,7 +21748,7 @@
       }
     ],
     "roots": {
-      "breakdown": "Iulius > luglio",
+      "breakdown": "Iuli-o-luglio",
       "parts": [
         {
           "part": "Iuli-",
@@ -21833,7 +21833,7 @@
       }
     ],
     "roots": {
-      "breakdown": "illui > lui",
+      "breakdown": "ill-ui-lui",
       "parts": [
         {
           "part": "ill-",
@@ -23216,7 +23216,7 @@
       }
     ],
     "roots": {
-      "breakdown": "Martis dies > martedì",
+      "breakdown": "Martis-dies / dì",
       "parts": [
         {
           "part": "Martis",
@@ -23294,7 +23294,7 @@
       }
     ],
     "roots": {
-      "breakdown": "Marz-o < Martius",
+      "breakdown": "Marz-o",
       "parts": [
         {
           "part": "Marz-",
@@ -23372,7 +23372,7 @@
       }
     ],
     "roots": {
-      "breakdown": "mas-cul-us > maschio",
+      "breakdown": "mas, maris-culus-o",
       "parts": [
         {
           "part": "mas, maris",
@@ -23466,7 +23466,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ematite > matita",
+      "breakdown": "haematites / ematite-haima-a",
       "parts": [
         {
           "part": "haematites / ematite",
@@ -23556,7 +23556,7 @@
       }
     ],
     "roots": {
-      "breakdown": "matutin-a > mattina",
+      "breakdown": "matutin-a",
       "parts": [
         {
           "part": "matutin-",
@@ -26032,7 +26032,7 @@
       }
     ],
     "roots": {
-      "breakdown": "neg-otium > negozio",
+      "breakdown": "neg-/nec-otium-io",
       "parts": [
         {
           "part": "neg-/nec",
@@ -26215,7 +26215,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ne-ipse-unus > nessuno",
+      "breakdown": "ne-ipse-unus",
       "parts": [
         {
           "part": "ne",
@@ -27198,7 +27198,7 @@
       }
     ],
     "roots": {
-      "breakdown": "o < aut",
+      "breakdown": "aut-o",
       "parts": [
         {
           "part": "aut",
@@ -27366,7 +27366,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ho-die > oggi",
+      "breakdown": "hoc-die-hodie",
       "parts": [
         {
           "part": "hoc",
@@ -27636,7 +27636,7 @@
       }
     ],
     "roots": {
-      "breakdown": "or-a < lat. hora",
+      "breakdown": "or-/hor-a",
       "parts": [
         {
           "part": "or-/hor-",
@@ -27721,7 +27721,7 @@
       }
     ],
     "roots": {
-      "breakdown": "oro-log-io < lat. horologium",
+      "breakdown": "oro-/horo-log-io",
       "parts": [
         {
           "part": "oro-/horo-",
@@ -27804,7 +27804,7 @@
       }
     ],
     "roots": {
-      "breakdown": "osped-al-e < lat. hospitale",
+      "breakdown": "osped-/hospit-al-e",
       "parts": [
         {
           "part": "osped-/hospit-",
@@ -27898,7 +27898,7 @@
       }
     ],
     "roots": {
-      "breakdown": "otto-bre < lat. October",
+      "breakdown": "otto-/octo-bre/-ber",
       "parts": [
         {
           "part": "otto-/octo-",
@@ -30242,7 +30242,7 @@
       }
     ],
     "roots": {
-      "breakdown": "più < plus",
+      "breakdown": "più-plus",
       "parts": [
         {
           "part": "più",
@@ -35174,7 +35174,7 @@
       }
     ],
     "roots": {
-      "breakdown": "semper > sempre",
+      "breakdown": "semper-e",
       "parts": [
         {
           "part": "semper",
@@ -35517,7 +35517,7 @@
       }
     ],
     "roots": {
-      "breakdown": "septem-ber > settembre",
+      "breakdown": "septem-ber/-bris-settembr-e",
       "parts": [
         {
           "part": "septem",
@@ -44793,7 +44793,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ali-quis + unus > *alicunus > alcuno",
+      "breakdown": "ali-/al-cun-o/-a/-i/-e",
       "parts": [
         {
           "part": "ali-/al-",
@@ -45443,7 +45443,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ancora < hanc horam",
+      "breakdown": "hanc-horam",
       "parts": [
         {
           "part": "hanc",
@@ -51167,7 +51167,7 @@
       }
     ],
     "roots": {
-      "breakdown": "capt-iv-us > catt-iv-o",
+      "breakdown": "capt-iv-o",
       "parts": [
         {
           "part": "capt-",
@@ -51263,7 +51263,7 @@
       }
     ],
     "roots": {
-      "breakdown": "caball-us > cavall-o",
+      "breakdown": "caball- / cavall-o-o",
       "parts": [
         {
           "part": "caball- / cavall-",
@@ -51636,7 +51636,7 @@
       }
     ],
     "roots": {
-      "breakdown": "chilo < chilogrammo",
+      "breakdown": "chilo-grammo",
       "parts": [
         {
           "part": "chilo-",
@@ -55353,7 +55353,7 @@
       }
     ],
     "roots": {
-      "breakdown": "de + ab > da",
+      "breakdown": "de-ab-da",
       "parts": [
         {
           "part": "de",
@@ -58021,7 +58021,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ecce + -um > eccum > ecco",
+      "breakdown": "ecce-um-o",
       "parts": [
         {
           "part": "ecce",
@@ -58111,7 +58111,7 @@
       }
     ],
     "roots": {
-      "breakdown": "oiko-nom-ia > economia",
+      "breakdown": "oiko-nom-ia",
       "parts": [
         {
           "part": "oiko-",
@@ -59023,7 +59023,7 @@
       }
     ],
     "roots": {
-      "breakdown": "etto-grammo > etto",
+      "breakdown": "etto-grammo",
       "parts": [
         {
           "part": "etto-",
@@ -62735,7 +62735,7 @@
       }
     ],
     "roots": {
-      "breakdown": "già < lat. iam",
+      "breakdown": "iam-già",
       "parts": [
         {
           "part": "iam",
@@ -84329,7 +84329,7 @@
       }
     ],
     "roots": {
-      "breakdown": "se < si",
+      "breakdown": "si-se",
       "parts": [
         {
           "part": "si",
@@ -87620,7 +87620,7 @@
       }
     ],
     "roots": {
-      "breakdown": "spos-are < lat. sponsāre",
+      "breakdown": "spos-are",
       "parts": [
         {
           "part": "spos-",
@@ -92161,7 +92161,7 @@
       }
     ],
     "roots": {
-      "breakdown": "intra > tra",
+      "breakdown": "in-tra",
       "parts": [
         {
           "part": "in-",
@@ -95181,7 +95181,7 @@
       }
     ],
     "roots": {
-      "breakdown": "water < water closet",
+      "breakdown": "water-closet",
       "parts": [
         {
           "part": "water",
@@ -96035,7 +96035,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ad-iung-ere > aggiungere",
+      "breakdown": "ad-iung-/giung-ere",
       "parts": [
         {
           "part": "ad-",
@@ -96145,7 +96145,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ad-giust-are > aggiustare",
+      "breakdown": "ad-giust-are",
       "parts": [
         {
           "part": "ad-",
@@ -98548,7 +98548,7 @@
       }
     ],
     "roots": {
-      "breakdown": "act-or > attore; act-rīx > attrice",
+      "breakdown": "act-/att-or/-ore-trix/-trice",
       "parts": [
         {
           "part": "act-/att-",
@@ -120381,7 +120381,7 @@
       }
     ],
     "roots": {
-      "breakdown": "dum inter-im > de-mentre > mentre",
+      "breakdown": "dum-interim-mentre",
       "parts": [
         {
           "part": "dum",
@@ -122521,7 +122521,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ne-c > né",
+      "breakdown": "ne-c / -que",
       "parts": [
         {
           "part": "ne-",
@@ -122611,7 +122611,7 @@
       }
     ],
     "roots": {
-      "breakdown": "né + anche > neanche",
+      "breakdown": "né-anche",
       "parts": [
         {
           "part": "né",
@@ -124152,7 +124152,7 @@
       }
     ],
     "roots": {
-      "breakdown": "orr-ibil-e < horr-ibil-is",
+      "breakdown": "orr-/horr-ibil-e",
       "parts": [
         {
           "part": "orr-/horr-",
@@ -127793,7 +127793,7 @@
       }
     ],
     "roots": {
-      "breakdown": "pop < pop",
+      "breakdown": "pop-popular-populus",
       "parts": [
         {
           "part": "pop",
@@ -131082,7 +131082,7 @@
       }
     ],
     "roots": {
-      "breakdown": "quaest-ura > questura",
+      "breakdown": "quaest-ura",
       "parts": [
         {
           "part": "quaest-",
@@ -137349,7 +137349,7 @@
       }
     ],
     "roots": {
-      "breakdown": "sia ← essere ← latino esse / sit",
+      "breakdown": "s-/es-sit / *siat-sia",
       "parts": [
         {
           "part": "s-/es-",
@@ -137438,7 +137438,7 @@
       }
     ],
     "roots": {
-      "breakdown": "sic-come ← sì/sic + come",
+      "breakdown": "sic / sì-come",
       "parts": [
         {
           "part": "sic / sì",
@@ -146548,7 +146548,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ad-apt-o > adatto",
+      "breakdown": "ad-apt-/att-o",
       "parts": [
         {
           "part": "ad-",
@@ -146643,7 +146643,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ad-dic-tus > addetto",
+      "breakdown": "ad-dic-/dict-tus",
       "parts": [
         {
           "part": "ad-",
@@ -147325,7 +147325,7 @@
       }
     ],
     "roots": {
-      "breakdown": "ad- + firm- + -are > affirmare > affermare",
+      "breakdown": "ad- / af-firm- / ferm-are",
       "parts": [
         {
           "part": "ad- / af-",
@@ -150159,7 +150159,7 @@
       }
     ],
     "roots": {
-      "breakdown": "asm-a < 拉丁语 asthma < 希腊语 âsthma",
+      "breakdown": "asm- / asthm-a",
       "parts": [
         {
           "part": "asm- / asthm-",
@@ -150662,7 +150662,7 @@
       }
     ],
     "roots": {
-      "breakdown": "abs-ent-ia > assenza",
+      "breakdown": "abs-/as-ent-ia / -enza",
       "parts": [
         {
           "part": "abs-/as-",
@@ -169500,7 +169500,7 @@
       }
     ],
     "roots": {
-      "breakdown": "giu-dic-e < ius + dicere",
+      "breakdown": "ius / iur-dic-e",
       "parts": [
         {
           "part": "ius / iur-",
@@ -174422,7 +174422,7 @@
       }
     ],
     "roots": {
-      "breakdown": "makários > makári > magari",
+      "breakdown": "makar-ios-i",
       "parts": [
         {
           "part": "makar-",
@@ -181519,7 +181519,7 @@
       }
     ],
     "roots": {
-      "breakdown": "por-rig-ere > porgere",
+      "breakdown": "por- / porro-rig-ere",
       "parts": [
         {
           "part": "por- / porro",
@@ -193025,7 +193025,7 @@
       }
     ],
     "roots": {
-      "breakdown": "s-pieg-are ← lat. ex-plic-are",
+      "breakdown": "ex-/s-plic-/pieg-are",
       "parts": [
         {
           "part": "ex-/s-",
