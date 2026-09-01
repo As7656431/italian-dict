@@ -42,32 +42,58 @@
       <!-- 搜索 + 筛选区 -->
       <div class="sticky top-[60px] z-40 bg-[#f8faf9] pb-4 pt-2 space-y-3">
         <SearchBar v-model="searchText" />
-        <div class="flex flex-wrap items-center gap-3">
-          <LevelFilter
-            :selected="store.state.selectedLevels"
-            :counts="store.state.totalByLevel"
-            @toggle="store.toggleLevel"
-          />
-          <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
-          <PosFilter
-            :selected="store.state.selectedPos"
-            @select="store.setPos"
-          />
-          <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
-          <!-- 收藏筛选按钮 -->
+
+        <!-- 手机端：折叠按钮 -->
+        <div class="md:hidden">
           <button
-            @click="store.toggleShowFavorites()"
-            :class="[
-              'px-3 py-1 rounded-full text-xs font-medium transition-all cursor-pointer border',
-              store.state.showFavoritesOnly
-                ? 'bg-yellow-100 text-yellow-800 border-yellow-300'
-                : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'
-            ]"
+            @click="showFilters = !showFilters"
+            class="w-full flex items-center justify-between px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm cursor-pointer"
           >
-            ⭐ 收藏 <span class="opacity-70">{{ store.state.favorites.size }}</span>
+            <div class="flex items-center gap-2">
+              <span class="text-gray-500">🔽 筛选</span>
+              <!-- 激活的筛选标签 -->
+              <span v-if="activeFilterTags.length" class="flex items-center gap-1 flex-wrap">
+                <span v-for="tag in activeFilterTags" :key="tag" class="text-xs px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700">{{ tag }}</span>
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs text-gray-400">{{ store.state.filteredWords.length }} 词</span>
+              <span class="text-gray-400 text-xs">{{ showFilters ? '▲' : '▼' }}</span>
+            </div>
           </button>
         </div>
-        <div class="text-xs text-gray-400">
+
+        <!-- 筛选按钮组：手机端折叠，桌面端始终显示 -->
+        <div :class="[showFilters ? 'block' : 'hidden', 'md:block']">
+          <div class="flex flex-wrap items-center gap-3">
+            <LevelFilter
+              :selected="store.state.selectedLevels"
+              :counts="store.state.totalByLevel"
+              @toggle="store.toggleLevel"
+            />
+            <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
+            <PosFilter
+              :selected="store.state.selectedPos"
+              @select="store.setPos"
+            />
+            <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
+            <!-- 收藏筛选按钮 -->
+            <button
+              @click="store.toggleShowFavorites()"
+              :class="[
+                'px-3 py-1 rounded-full text-xs font-medium transition-all cursor-pointer border',
+                store.state.showFavoritesOnly
+                  ? 'bg-yellow-100 text-yellow-800 border-yellow-300'
+                  : 'bg-white text-gray-500 border-gray-200 hover:border-gray-300'
+              ]"
+            >
+              ⭐ 收藏 <span class="opacity-70">{{ store.state.favorites.size }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 词条数（桌面端显示） -->
+        <div class="hidden md:block text-xs text-gray-400">
           共 {{ store.state.filteredWords.length }} 个词条
           <span v-if="store.state.showFavoritesOnly" class="text-yellow-600">（仅显示收藏）</span>
         </div>
@@ -111,10 +137,27 @@ import WordCard from '../components/WordCard.vue'
 const searchText = ref(store.state.searchQuery)
 const pageSize = 20
 const currentPage = ref(1)
+const showFilters = ref(false)
 
 const todayDate = computed(() => {
   const d = new Date()
   return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}`
+})
+
+// 手机端折叠时显示的激活筛选标签
+const activeFilterTags = computed(() => {
+  const tags = []
+  if (store.state.selectedLevels.length < 4) {
+    tags.push(...store.state.selectedLevels)
+  }
+  if (store.state.selectedPos !== '') {
+    const posNames = { 'v.': '动词', 's.': '名词', 'agg.': '形容词', 'avv.': '副词' }
+    tags.push(posNames[store.state.selectedPos] || store.state.selectedPos)
+  }
+  if (store.state.showFavoritesOnly) {
+    tags.push('⭐ 收藏')
+  }
+  return tags
 })
 
 let debounceTimer = null
