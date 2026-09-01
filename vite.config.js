@@ -9,7 +9,6 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['data/all_words.json', 'data/words_index.json'],
       manifest: {
         name: '意大利语 CEFR 词典',
         short_name: '意语词典',
@@ -38,8 +37,20 @@ export default defineConfig({
         ]
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,json,png,svg}'],
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // 10MB，确保词典JSON被缓存
+        globPatterns: ['**/*.{js,css,html,png,svg}'], // 不预缓存 JSON 数据文件
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
+        skipWaiting: true,      // 新 SW 立即激活，不等旧的退出
+        clientsClaim: true,     // 激活后立即接管所有页面
+        runtimeCaching: [{
+          urlPattern: /\/data\/.*\.json$/,
+          handler: 'NetworkFirst', // 数据文件优先从网络拉，离线时用缓存
+          options: {
+            cacheName: 'dict-data',
+            expiration: {
+              maxAgeSeconds: 86400 // 缓存 24 小时
+            }
+          }
+        }]
       }
     })
   ],
