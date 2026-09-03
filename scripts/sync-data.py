@@ -17,17 +17,21 @@ import os
 import sys
 import collections
 
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stderr.reconfigure(encoding='utf-8')
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
-SRC = os.path.join(PROJ, "..", "03-深度增强", "v2-词源重写", "output",
+SRC = os.path.join(PROJ, "..", "数据工程", "03-深度增强", "v4-谐音重写", "output",
                    "all_words_enriched_final.json")
 DATA_DIR = os.path.join(PROJ, "public", "data")
 DEST = os.path.join(DATA_DIR, "all_words.json")
 INDEX = os.path.join(DATA_DIR, "words_index.json")
 
 EXPECTED_COUNT = 2108
-# 只有这两个 roots 子字段允许变化
-ALLOWED_ROOTS_CHANGES = {"explanation", "cognates"}
+# V4 只允许 mnemonic 顶层字段变化
+ALLOWED_TOP_CHANGES = {"mnemonic"}
+ALLOWED_ROOTS_CHANGES = set()
 
 
 def load(path):
@@ -109,7 +113,7 @@ def validate_diff(old, new):
             if ra.get(k) != rb.get(k):
                 roots_changed[k] += 1
 
-    illegal_top = set(top_changed) - {"roots"}
+    illegal_top = set(top_changed) - ALLOWED_TOP_CHANGES
     if illegal_top:
         fail(f"以下顶层字段发生变化，不在允许范围内: {sorted(illegal_top)}")
     illegal_roots = set(roots_changed) - ALLOWED_ROOTS_CHANGES
