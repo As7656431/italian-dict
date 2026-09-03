@@ -22,7 +22,7 @@ sys.stderr.reconfigure(encoding='utf-8')
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PROJ = os.path.dirname(HERE)
-SRC = os.path.join(PROJ, "..", "数据工程", "03-深度增强", "v4-谐音重写", "output",
+SRC = os.path.join(PROJ, "..", "数据工程", "03-深度增强", "v4-谐音重写", "merged",
                    "all_words_enriched_final.json")
 DATA_DIR = os.path.join(PROJ, "public", "data")
 DEST = os.path.join(DATA_DIR, "all_words.json")
